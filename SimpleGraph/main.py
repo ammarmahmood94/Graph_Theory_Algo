@@ -1,4 +1,6 @@
+
 class Graph:
+
     def __init__(self, size):
         self.adjMatrix = []
         for i in range(size):
@@ -9,7 +11,7 @@ class Graph:
         if v1==v2:
             print("Same vertex %d and %d" % (v1,v2))
         self.adjMatrix[v1][v2] = 1
-        self.adjMatrix[v2][v1] = 1
+        #self.adjMatrix[v2][v1] = 1
     
     def remove_edge(self,v1,v2):
         if self.adjMatrix[v1][v2] == 0:
@@ -32,13 +34,15 @@ class Graph:
 
 if __name__ == "__main__":
     
-    g = Graph(4)
+    g = Graph(6)
 
     g.add_edge(0,1)
     g.add_edge(0,2)
-    g.add_edge(1,2)
-    g.add_edge(1,3)
-    g.add_edge(2,3)
+    g.add_edge(3,1)
+    g.add_edge(3,2)
+    g.add_edge(3,4)
+    g.add_edge(3,4)
+    g.add_edge(4,5)
 
-    v = g.dfs(1)
+    v = g.dfs(3)
     print(v)
