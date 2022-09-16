@@ -18,20 +18,27 @@ class Graph:
         self.adjMatrix[v1][v2] = 0
         self.adjMatrix[v2][v1] = 0
 
+    def dfs(self, s, v = []):
+        v.append(s)
+
+        for i in range(len(self.adjMatrix)):
+            if self.adjMatrix[s][i] == 1 and i not in v:
+                self.dfs(i, v)
+        return v
+
     def print_matrix(self):
         for i in self.adjMatrix:
             print(i)
 
 if __name__ == "__main__":
     
-    g = Graph(7)
+    g = Graph(4)
 
     g.add_edge(0,1)
+    g.add_edge(0,2)
     g.add_edge(1,2)
+    g.add_edge(1,3)
     g.add_edge(2,3)
-    g.add_edge(3,4)
-    g.add_edge(4,5)
-    g.add_edge(5,6)
 
-    g.print_matrix()
-    
+    v = g.dfs(1)
+    print(v)
