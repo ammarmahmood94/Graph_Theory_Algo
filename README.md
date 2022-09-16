@@ -1,1 +1,1 @@
-A representation of a Graph Data Structure
+A representation of an Undirected Graph Data Structure
